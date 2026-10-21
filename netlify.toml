@@ -1,19 +1,26 @@
-# Netlify: static site, deployed automatically on every push to main
-# (GitHub-connected continuous deployment set in the Netlify dashboard).
+# Netlify: GitHub-connected continuous deployment. Every push to main runs the build,
+# which pre-renders every page from data/site-content.json into dist/.
 [build]
-  publish = "."
-  command = ""
+  command = "node build/build.mjs"
+  publish = "dist"
 
-# Content data: always revalidate so edits (and later Airtable data) show immediately
-[[headers]]
-  for = "/data/*"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+[build.environment]
+  NODE_VERSION = "22"
 
 [[headers]]
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/llms-full.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
 
 [[headers]]
   for = "/*"
