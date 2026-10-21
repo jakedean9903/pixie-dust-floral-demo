@@ -71,10 +71,10 @@
     var figure = dialog.querySelector("figure");
     var caption = dialog.querySelector("figcaption");
     var img = document.createElement("img");
-    figure.insertBefore(img, caption);
     var current = 0;
 
     function show(index) {
+      if (!img.parentNode) figure.insertBefore(img, caption);
       current = (index + buttons.length) % buttons.length;
       var thumb = buttons[current].querySelector("img");
       img.src = thumb.getAttribute("src");
