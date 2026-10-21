@@ -122,7 +122,7 @@ Key facts:
 - In her words: "${business.tagline}"
 - Studio: ${fullAddress} (home-based studio)
 - Phone: ${business.phone}
-- Hours: ${hoursLine()}; Sunday closed
+- Hours: ${hoursLine()}
 - Instagram: ${business.instagramHandle} (${business.instagram})
 - Specialties: ${business.specialties.join(", ")}
 - Signature item: ${pumpkins ? `${pumpkins.Name.toLowerCase()}, from $${pumpkins["Price From"]}, available in the ${pumpkins.Season.toLowerCase()} (${pumpkins.Availability.toLowerCase()})` : ""}
@@ -150,7 +150,7 @@ export function llmsFullTxt(site, content) {
 Source: ${site.url}/
 Address: ${fullAddress}
 Phone: ${business.phone}
-Hours: ${hoursLine()}; Sunday closed
+Hours: ${hoursLine()}
 Google rating: ${business.rating.value} stars from ${business.rating.count} reviews (${business.rating.fiveStar} five-star)
 
 ## Services
