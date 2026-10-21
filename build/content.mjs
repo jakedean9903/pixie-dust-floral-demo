@@ -64,6 +64,13 @@ export async function loadContent(root) {
     (r.Categories || []).forEach((c) => { if (!categories.includes(c)) categories.push(c); })
   );
 
+  const products = records(data, "Products").map((p) => ({
+    ...p,
+    path: `/shop/${p.Slug}/`,
+    sizes: String(p.Sizes || "").split("\n").map((l) => l.split("|").map((s) => s.trim()))
+      .filter(([name, price]) => name && price).map(([name, price]) => ({ name, price: Number(price) })),
+  }));
+
   return {
     gallery,
     specials,
@@ -72,5 +79,37 @@ export async function loadContent(root) {
     faq: records(data, "FAQ"),
     cities,
     categories,
+    products,
+    zones: records(data, "Delivery Zones"),
+    shopSettings: records(data, "Shop Settings")[0] || {},
+    policies: records(data, "Policies"),
+  };
+}
+
+// The public catalog the cart and the checkout function both price orders from.
+// Written to dist/data/shop-catalog.json at build time.
+export function shopCatalog(content) {
+  const s = content.shopSettings;
+  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  return {
+    previewMode: s["Preview Mode"] !== false,
+    leadDays: s["Lead Days"] || 0,
+    closedWeekdays: (s["Closed Weekdays"] || []).map((d) => weekdays.indexOf(d)).filter((i) => i >= 0),
+    blackoutDates: String(s["Blackout Dates"] || "").split("\n").map((l) => l.trim()).filter(Boolean),
+    pickupEnabled: !!s["Pickup Enabled"],
+    pickupAddress: s["Pickup Address"] || "",
+    cardMessageLimit: s["Card Message Limit"] || 200,
+    collectSalesTax: !!s["Collect Sales Tax"],
+    products: content.products.map((p) => ({
+      id: p.id, slug: p.Slug, name: p.Name, category: p["Shop Category"], path: p.path,
+      image: p.Photo && p.Photo[0] ? "/" + p.Photo[0].url : "",
+      sizes: p.sizes, fulfillment: p.Fulfillment || [], leadDays: p["Lead Days"] || 0,
+      seasonStart: p["Season Start"] || null, seasonEnd: p["Season End"] || null,
+      priceConfirmed: !!p["Price Confirmed"],
+    })),
+    zones: content.zones.map((z) => ({
+      id: z.id, name: z.Name, fee: Number(z.Fee) || 0, feeConfirmed: !!z["Fee Confirmed"],
+      zips: String(z["ZIP Codes"] || "").split(",").map((s) => s.trim()).filter(Boolean),
+    })),
   };
 }

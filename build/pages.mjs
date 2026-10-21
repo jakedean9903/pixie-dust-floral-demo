@@ -110,7 +110,7 @@ export function buildPages(content, site) {
           <p class="section-lede">${esc(pumpkins.Description)}</p>
           <p class="seasonal-price">From $${pumpkins["Price From"]} <span>${esc(pumpkins.Availability)}</span></p>
           <div class="hero-actions">
-            <a href="/book/?type=pumpkins" class="btn btn-primary btn-lg">Pre-order Pumpkins</a>
+            <a href="/shop/floral-pumpkin-centerpiece/" class="btn btn-primary btn-lg">Pre-order Pumpkins</a>
             <a href="/seasonal-specials/" class="btn btn-ghost btn-lg">See Seasonal Specials</a>
           </div>
         </div>
@@ -270,7 +270,7 @@ ${bookingSection({ image: byId(gallery, "recGal16FlatLayB") })}`,
               <li>Designed by pre-order only</li>
             </ul>
             <div class="hero-actions">
-              <a href="/book/?type=pumpkins" class="btn btn-primary btn-lg">Pre-order Now</a>
+              <a href="/shop/floral-pumpkin-centerpiece/" class="btn btn-primary btn-lg">Pre-order Now</a>
               <a href="${business.phoneHref}" class="btn btn-ghost btn-lg">Call ${business.phone}</a>
             </div>
           </div>
@@ -344,7 +344,9 @@ ${bookingSection({ type: "pumpkins", title: "Pre-order your <em>pumpkins.</em>",
       </div>
     </section>
 
-${bookingSection({ type: "everyday", title: "Send something <em>beautiful.</em>",
+${ctaBand({ title: "Order <em>online.</em>", text: "Choose an arrangement, pick a date, and Tiffany designs it fresh for delivery or pickup.", button: "Shop Arrangements", href: "/shop/", image: byId(gallery, "recGal09BlushRos") })}
+
+${bookingSection({ type: "everyday", title: "Something <em>custom?</em>",
   intro: "Tell Tiffany who the flowers are for, when you need them and the feel you want, or call to talk it through." })}`,
   });
 

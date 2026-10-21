@@ -110,7 +110,7 @@ export function llmsTxt(site, content, pages) {
   const { specials, cities } = content;
   const pumpkins = specials[0];
   const pageLine = (p) => `- [${p.llmsLabel || p.heading}](${site.url}${p.path}): ${p.description}`;
-  const main = pages.filter((p) => p.llms === "main");
+  const main = pages.filter((p) => p.llms === "main" && !p.noindex);
   const cityPages = pages.filter((p) => p.llms === "city");
   return `# ${business.name}
 

@@ -80,6 +80,66 @@
       "Topics": "multipleSelects (General, Weddings, Seasonal, Everyday)",
       "Sort Order": "number",
       "Show on Website": "checkbox"
+    },
+    "Products": {
+      "Name": "singleLineText",
+      "Slug": "singleLineText",
+      "Shop Category": "singleSelect (Everyday, Sympathy, Seasonal, Corsages & Boutonnieres)",
+      "Description": "multilineText",
+      "Photo": "multipleAttachments",
+      "Alt Text": "multilineText",
+      "Sizes": "multilineText (one per line: Size name | price in dollars)",
+      "Fulfillment": "multipleSelects (Delivery, Pickup)",
+      "Lead Days": "number (minimum days between ordering and the delivery date)",
+      "Season Start": "date (optional)",
+      "Season End": "date (optional)",
+      "Price Confirmed": "checkbox (false = sample price shown with a preview notice)",
+      "Sort Order": "number",
+      "Show on Website": "checkbox"
+    },
+    "Delivery Zones": {
+      "Name": "singleLineText",
+      "ZIP Codes": "multilineText (comma separated)",
+      "Fee": "currency",
+      "Fee Confirmed": "checkbox",
+      "Sort Order": "number",
+      "Show on Website": "checkbox"
+    },
+    "Shop Settings": {
+      "Preview Mode": "checkbox (true = sample menu: no payments, noindex shop pages, preview banner)",
+      "Lead Days": "number (default minimum notice)",
+      "Closed Weekdays": "multipleSelects (Sunday ... Saturday)",
+      "Blackout Dates": "multilineText (YYYY-MM-DD, one per line)",
+      "Pickup Address": "singleLineText",
+      "Pickup Enabled": "checkbox",
+      "Card Message Limit": "number",
+      "Collect Sales Tax": "checkbox"
+    },
+    "Policies": {
+      "Title": "singleLineText",
+      "Body": "multilineText",
+      "Draft": "checkbox",
+      "Sort Order": "number",
+      "Show on Website": "checkbox"
+    },
+    "Orders": {
+      "Order Number": "singleLineText",
+      "Status": "singleSelect (Paid, In Progress, Delivered, Picked Up, Cancelled)",
+      "Customer Name": "singleLineText",
+      "Customer Email": "email",
+      "Customer Phone": "phoneNumber",
+      "Items": "multilineText",
+      "Fulfillment Date": "date",
+      "Fulfillment": "singleSelect (Delivery, Pickup)",
+      "Recipient": "singleLineText",
+      "Recipient Phone": "phoneNumber",
+      "Address": "multilineText",
+      "Card Message": "multilineText",
+      "Instructions": "multilineText",
+      "Subtotal": "currency",
+      "Delivery Fee": "currency",
+      "Total": "currency",
+      "Stripe Session": "singleLineText"
     }
   },
   "Gallery": {
@@ -875,6 +935,285 @@
           ],
           "Sort Order": 10,
           "Show on Website": true
+        }
+      }
+    ]
+  },
+  "Products": {
+    "records": [
+      {
+        "id": "recPrd01Pumpkin",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Floral Pumpkin Centerpiece",
+          "Slug": "floral-pumpkin-centerpiece",
+          "Shop Category": "Seasonal",
+          "Description": "Tiffany's signature flower-filled pumpkin centerpiece, back by request this fall and designed by pre-order only.",
+          "Photo": [
+            {
+              "url": "images/service-pumpkin-centerpiece.jpg",
+              "filename": "service-pumpkin-centerpiece.jpg",
+              "width": 900,
+              "height": 1200
+            }
+          ],
+          "Alt Text": "Pumpkin centerpiece overflowing with peach garden roses, orange ranunculus, blue delphinium and berries",
+          "Sizes": "Signature | 65",
+          "Fulfillment": [
+            "Delivery",
+            "Pickup"
+          ],
+          "Lead Days": 3,
+          "Price Confirmed": true,
+          "Sort Order": 1,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recPrd02PinkGard",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Garden Arrangement in Pinks",
+          "Slug": "garden-arrangement-in-pinks",
+          "Shop Category": "Everyday",
+          "Description": "A designer's choice garden-style arrangement in soft and bright pinks, made with the freshest roses and seasonal blooms of the week.",
+          "Photo": [
+            {
+              "url": "images/gallery-pink-roses.jpg",
+              "filename": "gallery-pink-roses.jpg",
+              "width": 1038,
+              "height": 1200
+            }
+          ],
+          "Alt Text": "Garden-style arrangement of pink roses, tulips and carnations in a blush ceramic vase",
+          "Sizes": "Standard | 55\nDeluxe | 75\nPremium | 95",
+          "Fulfillment": [
+            "Delivery",
+            "Pickup"
+          ],
+          "Lead Days": 1,
+          "Price Confirmed": false,
+          "Sort Order": 2,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recPrd03BlushRos",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Blush & Toffee Roses",
+          "Slug": "blush-and-toffee-roses",
+          "Shop Category": "Everyday",
+          "Description": "Ivory, blush and toffee roses with delicate waxflower, arranged in a clear vase for anniversaries, birthdays and thank-yous.",
+          "Photo": [
+            {
+              "url": "images/gallery-blush-roses.jpg",
+              "filename": "gallery-blush-roses.jpg",
+              "width": 1149,
+              "height": 1200
+            }
+          ],
+          "Alt Text": "Arrangement of ivory, blush and toffee-colored roses with waxflower in a glass vase",
+          "Sizes": "Standard | 60\nDeluxe | 80\nPremium | 100",
+          "Fulfillment": [
+            "Delivery",
+            "Pickup"
+          ],
+          "Lead Days": 1,
+          "Price Confirmed": false,
+          "Sort Order": 3,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recPrd04Sympathy",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "White Sympathy Arrangement",
+          "Slug": "white-sympathy-arrangement",
+          "Shop Category": "Sympathy",
+          "Description": "A calm, all-white arrangement of garden roses, hydrangea and tulips with soft greenery, for a service or a family's home.",
+          "Photo": [
+            {
+              "url": "images/service-everyday-white.jpg",
+              "filename": "service-everyday-white.jpg",
+              "width": 1200,
+              "height": 900
+            }
+          ],
+          "Alt Text": "All-white arrangement of garden roses, hydrangea, tulips and waxflower with eucalyptus in a textured white pot",
+          "Sizes": "Standard | 75\nDeluxe | 95\nPremium | 125",
+          "Fulfillment": [
+            "Delivery"
+          ],
+          "Lead Days": 1,
+          "Price Confirmed": false,
+          "Sort Order": 4,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recPrd05Corsage",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Ranunculus Wrist Corsage",
+          "Slug": "ranunculus-wrist-corsage",
+          "Shop Category": "Corsages & Boutonnieres",
+          "Description": "A wrist corsage built around a white ranunculus with plum accents. Add a note about the dress color and Tiffany will match it.",
+          "Photo": [
+            {
+              "url": "images/gallery-wrist-corsage.jpg",
+              "filename": "gallery-wrist-corsage.jpg",
+              "width": 1012,
+              "height": 1200
+            }
+          ],
+          "Alt Text": "Wrist corsage of white ranunculus and plum chrysanthemums with fine greenery",
+          "Sizes": "Corsage | 35",
+          "Fulfillment": [
+            "Pickup",
+            "Delivery"
+          ],
+          "Lead Days": 3,
+          "Price Confirmed": false,
+          "Sort Order": 5,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recPrd06Boutonn",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Classic Boutonniere",
+          "Slug": "classic-boutonniere",
+          "Shop Category": "Corsages & Boutonnieres",
+          "Description": "A boutonniere with a white ranunculus and rich burgundy and lavender blooms, made to match a corsage or a suit.",
+          "Photo": [
+            {
+              "url": "images/gallery-burgundy-boutonniere.jpg",
+              "filename": "gallery-burgundy-boutonniere.jpg",
+              "width": 900,
+              "height": 1200
+            }
+          ],
+          "Alt Text": "Boutonniere with a white ranunculus, burgundy and lavender blooms and pine on a wooden table",
+          "Sizes": "Boutonniere | 20",
+          "Fulfillment": [
+            "Pickup",
+            "Delivery"
+          ],
+          "Lead Days": 3,
+          "Price Confirmed": false,
+          "Sort Order": 6,
+          "Show on Website": true
+        }
+      }
+    ]
+  },
+  "Delivery Zones": {
+    "records": [
+      {
+        "id": "recZon01Kernersv",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Kernersville & Walkertown",
+          "ZIP Codes": "27284, 27285, 27051",
+          "Fee": 10,
+          "Fee Confirmed": false,
+          "Sort Order": 1,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recZon02WinstonS",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Winston-Salem",
+          "ZIP Codes": "27101, 27103, 27104, 27105, 27106, 27107, 27127",
+          "Fee": 15,
+          "Fee Confirmed": false,
+          "Sort Order": 2,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recZon03Greensbr",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Greensboro, High Point & Oak Ridge",
+          "ZIP Codes": "27401, 27403, 27405, 27406, 27407, 27408, 27409, 27410, 27260, 27262, 27263, 27265, 27310",
+          "Fee": 20,
+          "Fee Confirmed": false,
+          "Sort Order": 3,
+          "Show on Website": true
+        }
+      }
+    ]
+  },
+  "Shop Settings": {
+    "records": [
+      {
+        "id": "recSet01Shop",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Preview Mode": true,
+          "Lead Days": 1,
+          "Closed Weekdays": [
+            "Sunday"
+          ],
+          "Blackout Dates": "",
+          "Pickup Address": "6010 Habersham Dr, Kernersville, NC 27284",
+          "Pickup Enabled": true,
+          "Card Message Limit": 200,
+          "Collect Sales Tax": false
+        }
+      }
+    ]
+  },
+  "Policies": {
+    "records": [
+      {
+        "id": "recPol01Delivery",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Delivery",
+          "Draft": true,
+          "Sort Order": 1,
+          "Show on Website": true,
+          "Body": "Orders are delivered on the date you choose at checkout, Monday through Saturday. Delivery fees are based on the delivery ZIP code and are shown before you pay. If no one is available to receive the flowers, they will be left in a safe, shaded spot or the recipient will be contacted to arrange another time."
+        }
+      },
+      {
+        "id": "recPol02Substitut",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Flower substitutions",
+          "Draft": true,
+          "Sort Order": 2,
+          "Show on Website": true,
+          "Body": "Every arrangement is designed by hand with the freshest flowers available that week. If a specific flower is unavailable, Tiffany will substitute one of equal or greater value in the same color palette and style."
+        }
+      },
+      {
+        "id": "recPol03Changes",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Changes and cancellations",
+          "Draft": true,
+          "Sort Order": 3,
+          "Show on Website": true,
+          "Body": "To change or cancel an order, call (336) 310-9001 as early as possible. Orders can be changed or cancelled for a full refund until flowers have been purchased for your design."
+        }
+      },
+      {
+        "id": "recPol04PreOrder",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Pumpkin pre-orders",
+          "Draft": true,
+          "Sort Order": 4,
+          "Show on Website": true,
+          "Body": "Floral pumpkin centerpieces are designed by pre-order only during the fall season. Choose your delivery or pickup date at checkout so Tiffany can source flowers for your order."
         }
       }
     ]

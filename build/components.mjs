@@ -36,11 +36,19 @@ export function ratingBadge() {
 // ---- Page chrome ----------------------------------------------------------
 export const NAV = [
   { href: "/weddings/", label: "Weddings" },
+  { href: "/shop/", label: "Shop" },
   { href: "/gallery/", label: "Gallery" },
-  { href: "/seasonal-specials/", label: "Seasonal" },
-  { href: "/everyday-sympathy/", label: "Everyday & Sympathy" },
   { href: "/reviews/", label: "Reviews" },
   { href: "/about/", label: "About" },
+];
+
+// Footer-only links (kept out of the top bar so it stays uncluttered)
+const MORE = [
+  { href: "/seasonal-specials/", label: "Seasonal Specials" },
+  { href: "/everyday-sympathy/", label: "Everyday & Sympathy" },
+  { href: "/faq/", label: "FAQ" },
+  { href: "/policies/", label: "Ordering Policies" },
+  { href: "/book/", label: "Check Your Date" },
 ];
 
 export function header(current) {
@@ -55,9 +63,15 @@ export function header(current) {
         <span class="brand-sub">Floral Design</span>
       </a>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-actions">
+        <a href="/shop/checkout/" class="cart-btn" data-cart-open aria-label="Cart, 0 items">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1.2 11.2a1 1 0 0 1-1 .8H8.2a1 1 0 0 1-1-.8L6 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
       <div class="nav-menu" id="nav-menu">
         <ul class="nav-links">
@@ -80,9 +94,7 @@ export function footer(cities) {
       </div>
       <nav class="footer-links" aria-label="Explore">
         <p class="footer-head">Explore</p>
-        ${NAV.map((n) => `<a href="${n.href}">${esc(n.label)}</a>`).join("\n        ")}
-        <a href="/faq/">FAQ</a>
-        <a href="/book/">Check Your Date</a>
+        ${[...NAV, ...MORE].map((n) => `<a href="${n.href}">${esc(n.label)}</a>`).join("\n        ")}
       </nav>
       <nav class="footer-links" aria-label="Service area">
         <p class="footer-head">Service Area</p>
@@ -106,6 +118,15 @@ export function footer(cities) {
     <a href="${business.phoneHref}" class="mobile-cta-call">Call</a>
     <a href="/book/" class="btn btn-primary">Check Your Date</a>
   </div>
+
+  <dialog class="cart-drawer" id="cart-drawer" aria-label="Your cart">
+    <div class="cart-head">
+      <h2>Your cart</h2>
+      <button type="button" class="cart-close" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-body" data-cart-body></div>
+    <div class="cart-foot" data-cart-foot></div>
+  </dialog>
 
   <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
     <button type="button" class="lightbox-close" aria-label="Close photo">&times;</button>
@@ -161,6 +182,7 @@ ${page.body}
   ${footer(cities)}
 
   <script src="/script.js?v=${site.version}"></script>
+  <script type="module" src="/shop.js?v=${site.version}"></script>
 </body>
 </html>
 `;
@@ -242,7 +264,7 @@ export function specialCard(record) {
               <p>${esc(record.Description)}</p>
               <div class="special-footer">
                 ${record["Price From"] ? `<span class="special-price">From $${record["Price From"]}</span>` : ""}
-                <a href="/book/?type=pumpkins" class="btn btn-primary">Pre-order</a>
+                <a href="/shop/floral-pumpkin-centerpiece/" class="btn btn-primary">Pre-order</a>
               </div>
             </figcaption>
           </figure>`;

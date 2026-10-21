@@ -7,6 +7,12 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Order functions: create-checkout (Stripe) and stripe-webhook (saves orders to Airtable).
+# Both stay inactive until STRIPE_SECRET_KEY / STRIPE_WEBHOOK_SECRET are set and Preview Mode is off.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[headers]]
   for = "/images/*"
   [headers.values]
