@@ -1,0 +1,22 @@
+# Netlify: static site, deployed automatically on every push to main
+# (GitHub-connected continuous deployment set in the Netlify dashboard).
+[build]
+  publish = "."
+  command = ""
+
+# Content data: always revalidate so edits (and later Airtable data) show immediately
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

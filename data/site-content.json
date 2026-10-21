@@ -1,0 +1,440 @@
+{
+  "_about": "Demo content for the Pixie Dust Floral Design concept site. Each table mirrors a future Airtable base and uses the same shape as the Airtable REST API ({ records: [{ id, createdTime, fields }] }), so a Netlify function can return live Airtable data in this exact format later without changing script.js. Image attachments use Airtable's attachment shape ({ url, filename, width, height }). This file is the only data source for the demo: no Airtable API key or live connection is used.",
+
+  "_schema": {
+    "categories": [
+      "Bridal Bouquets",
+      "Ceremony & Reception",
+      "Centerpieces & Installations",
+      "Everyday & Sympathy",
+      "Seasonal Specials"
+    ],
+    "Gallery": {
+      "Title": "singleLineText",
+      "Categories": "multipleSelects (options = categories)",
+      "Photo": "multipleAttachments",
+      "Alt Text": "multilineText",
+      "Caption": "singleLineText",
+      "Photo Credit": "singleLineText",
+      "Sort Order": "number",
+      "Show on Website": "checkbox"
+    },
+    "Specials": {
+      "Name": "singleLineText",
+      "Categories": "multipleSelects (options = categories)",
+      "Badge": "singleLineText",
+      "Price From": "currency",
+      "Season": "singleSelect",
+      "Availability": "singleLineText",
+      "Description": "multilineText",
+      "Photo": "multipleAttachments",
+      "Alt Text": "multilineText",
+      "Sort Order": "number",
+      "Show on Website": "checkbox"
+    },
+    "Testimonials": {
+      "Name": "singleLineText",
+      "Role": "singleLineText",
+      "Quote": "multilineText",
+      "Pull Quote": "multilineText",
+      "Rating": "rating",
+      "Source": "singleSelect",
+      "Photo": "multipleAttachments",
+      "Alt Text": "multilineText",
+      "Featured": "checkbox",
+      "Show in Banner": "checkbox",
+      "Sort Order": "number",
+      "Show on Website": "checkbox"
+    },
+    "Services": {
+      "Name": "singleLineText",
+      "Gallery Category": "singleSelect (options = categories)",
+      "Description": "multilineText",
+      "Photo": "multipleAttachments",
+      "Alt Text": "multilineText",
+      "CTA Label": "singleLineText",
+      "Featured Special": "multipleRecordLinks (Specials)",
+      "Sort Order": "number",
+      "Show on Website": "checkbox"
+    }
+  },
+
+  "Gallery": {
+    "records": [
+      {
+        "id": "recGal01PeachBqt",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Peach garden rose bouquet",
+          "Categories": ["Bridal Bouquets"],
+          "Photo": [{ "url": "images/gallery-peach-ranunculus-bouquet.jpg", "filename": "gallery-peach-ranunculus-bouquet.jpg", "width": 1200, "height": 1200 }],
+          "Alt Text": "Bridal bouquet of peach garden roses, white ranunculus and lisianthus with silk ribbon and a photo charm",
+          "Caption": "Peach garden roses & white ranunculus",
+          "Sort Order": 1,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal02Reynolda",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Recessional at Reynolda",
+          "Categories": ["Ceremony & Reception"],
+          "Photo": [{ "url": "images/gallery-reynolda-recessional.jpg", "filename": "gallery-reynolda-recessional.jpg", "width": 900, "height": 1200 }],
+          "Alt Text": "Smiling bride holding white calla lilies walks back up the aisle with her groom in front of the Reynolda greenhouse",
+          "Caption": "The Barn at Reynolda Village",
+          "Photo Credit": "Emma Jo Marsh Photography",
+          "Sort Order": 2,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal03TableScp",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Reception tablescape",
+          "Categories": ["Centerpieces & Installations", "Ceremony & Reception"],
+          "Photo": [{ "url": "images/gallery-tablescape.jpg", "filename": "gallery-tablescape.jpg", "width": 1400, "height": 1050 }],
+          "Alt Text": "Long reception table with gold chargers, a blush rose bud vase and dried pampas florals beneath draped fabric",
+          "Caption": "Reception tablescape",
+          "Sort Order": 3,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal04BlueBout",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Groom's boutonniere",
+          "Categories": ["Bridal Bouquets"],
+          "Photo": [{ "url": "images/gallery-boutonniere-blue.jpg", "filename": "gallery-boutonniere-blue.jpg", "width": 800, "height": 1200 }],
+          "Alt Text": "Groom in a blue suit and floral tie wearing a white and soft blue boutonniere",
+          "Caption": "Groom's boutonniere",
+          "Sort Order": 4,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal05LakeArch",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Lakeside ceremony arch",
+          "Categories": ["Ceremony & Reception"],
+          "Photo": [{ "url": "images/gallery-lakeside-arch.jpg", "filename": "gallery-lakeside-arch.jpg", "width": 900, "height": 1200 }],
+          "Alt Text": "Couple exchanging vows beneath a gold arch dressed in pink and purple florals beside a lake",
+          "Caption": "Lakeside ceremony arch",
+          "Sort Order": 5,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal06CallaLil",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Blush calla lilies",
+          "Categories": ["Centerpieces & Installations"],
+          "Photo": [{ "url": "images/gallery-calla-lilies.jpg", "filename": "gallery-calla-lilies.jpg", "width": 900, "height": 1200 }],
+          "Alt Text": "Blush-tipped white calla lilies arranged in a cluster of clear glass vases",
+          "Caption": "Blush calla lilies",
+          "Sort Order": 6,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal07BrdsmBqt",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Bridesmaid's bouquet",
+          "Categories": ["Bridal Bouquets"],
+          "Photo": [{ "url": "images/gallery-bridesmaid-bouquet.jpg", "filename": "gallery-bridesmaid-bouquet.jpg", "width": 800, "height": 1200 }],
+          "Alt Text": "Bridesmaid in a dusty blue dress holding a bouquet of pale blue and white flowers",
+          "Caption": "Bridesmaid's bouquet in dusty blue",
+          "Sort Order": 7,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal08WristCor",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Ranunculus wrist corsage",
+          "Categories": ["Everyday & Sympathy", "Bridal Bouquets"],
+          "Photo": [{ "url": "images/gallery-wrist-corsage.jpg", "filename": "gallery-wrist-corsage.jpg", "width": 1012, "height": 1200 }],
+          "Alt Text": "Wrist corsage of white ranunculus and plum chrysanthemums with fine greenery",
+          "Caption": "Ranunculus wrist corsage",
+          "Sort Order": 8,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal09BlushRos",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Blush & toffee roses",
+          "Categories": ["Everyday & Sympathy"],
+          "Photo": [{ "url": "images/gallery-blush-roses.jpg", "filename": "gallery-blush-roses.jpg", "width": 1149, "height": 1200 }],
+          "Alt Text": "Arrangement of ivory, blush and toffee-colored roses with waxflower in a glass vase",
+          "Caption": "Blush & toffee roses",
+          "Sort Order": 9,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal10Sunglass",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "A bouquet with personality",
+          "Categories": ["Bridal Bouquets"],
+          "Photo": [{ "url": "images/gallery-bouquet-sunglasses.jpg", "filename": "gallery-bouquet-sunglasses.jpg", "width": 1200, "height": 800 }],
+          "Alt Text": "Pastel bridal bouquet laid flat with a pair of white heart-shaped sunglasses",
+          "Caption": "A bouquet with personality",
+          "Sort Order": 10,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal11BurgBout",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Burgundy & plum boutonniere",
+          "Categories": ["Bridal Bouquets"],
+          "Photo": [{ "url": "images/gallery-burgundy-boutonniere.jpg", "filename": "gallery-burgundy-boutonniere.jpg", "width": 900, "height": 1200 }],
+          "Alt Text": "Boutonniere with a white ranunculus, burgundy and lavender blooms and pine on a wooden table",
+          "Caption": "Burgundy & plum boutonniere",
+          "Sort Order": 11,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal12PinkGard",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Garden arrangement in pinks",
+          "Categories": ["Everyday & Sympathy"],
+          "Photo": [{ "url": "images/gallery-pink-roses.jpg", "filename": "gallery-pink-roses.jpg", "width": 1038, "height": 1200 }],
+          "Alt Text": "Garden-style arrangement of pink roses, tulips and carnations in a blush ceramic vase",
+          "Caption": "Garden arrangement in pinks",
+          "Sort Order": 12,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal13Ceremony",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Ceremony installation",
+          "Categories": ["Ceremony & Reception", "Centerpieces & Installations"],
+          "Photo": [{ "url": "images/service-ceremony.jpg", "filename": "service-ceremony.jpg", "width": 1400, "height": 934 }],
+          "Alt Text": "Wedding ceremony in a brick and glass venue framed by tall white and blue floral installations",
+          "Caption": "Ceremony installations in white & blue",
+          "Sort Order": 13,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal14WhiteArr",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "All-white arrangement",
+          "Categories": ["Everyday & Sympathy"],
+          "Photo": [{ "url": "images/service-everyday-white.jpg", "filename": "service-everyday-white.jpg", "width": 1200, "height": 900 }],
+          "Alt Text": "All-white arrangement of garden roses, hydrangea, tulips and waxflower with eucalyptus in a textured white pot",
+          "Caption": "Garden roses, hydrangea & tulips in white",
+          "Sort Order": 14,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal15BrdParty",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Bridal party bouquets",
+          "Categories": ["Bridal Bouquets", "Ceremony & Reception"],
+          "Photo": [{ "url": "images/bridal-party-bouquets.jpg", "filename": "bridal-party-bouquets.jpg", "width": 1600, "height": 1067 }],
+          "Alt Text": "Bride and bridesmaids in pastel blue, yellow, sage and pink dresses holding coordinating bouquets",
+          "Caption": "Bridal party bouquets in soft pastels",
+          "Sort Order": 15,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal16FlatLayB",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Loose bridal bouquet",
+          "Categories": ["Bridal Bouquets"],
+          "Photo": [{ "url": "images/service-bridal-bouquet.jpg", "filename": "service-bridal-bouquet.jpg", "width": 800, "height": 1200 }],
+          "Alt Text": "Bridal bouquet of white ranunculus and soft blue, blush and peach flowers resting on a white surface",
+          "Caption": "Loose bridal bouquet with ranunculus",
+          "Sort Order": 16,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recGal17SequinBr",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Title": "Pink garden rose bridal bouquet",
+          "Categories": ["Bridal Bouquets"],
+          "Photo": [{ "url": "images/hero-bride-bouquet.jpg", "filename": "hero-bride-bouquet.jpg", "width": 1283, "height": 1600 }],
+          "Alt Text": "Bride in a sequined gown holding a lush bouquet of pink garden roses, burgundy dahlias and silver-green foliage",
+          "Caption": "Pink garden roses & burgundy dahlias",
+          "Sort Order": 17,
+          "Show on Website": true
+        }
+      }
+    ]
+  },
+
+  "Specials": {
+    "records": [
+      {
+        "id": "recSpc01Pumpkins",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Floral Pumpkin Centerpieces",
+          "Categories": ["Seasonal Specials", "Centerpieces & Installations"],
+          "Badge": "Signature pumpkins",
+          "Price From": 65,
+          "Season": "Fall",
+          "Availability": "Pre-order only",
+          "Description": "You asked, and they're back this fall: Tiffany's signature flower-filled pumpkin centerpieces.",
+          "Photo": [{ "url": "images/service-pumpkin-centerpiece.jpg", "filename": "service-pumpkin-centerpiece.jpg", "width": 900, "height": 1200 }],
+          "Alt Text": "Signature pumpkin centerpiece overflowing with peach garden roses, orange ranunculus, blue delphinium and berries",
+          "Sort Order": 1,
+          "Show on Website": true
+        }
+      }
+    ]
+  },
+
+  "Testimonials": {
+    "records": [
+      {
+        "id": "recTst01KaylinB",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Kaylin B.",
+          "Role": "Bride",
+          "Quote": "I trusted Tiffany with our floral arrangements and design for our special day… When I walked into our ceremony and saw the MAGIC she made come to life, I was truly speechless! I had several expectations set for her that she very well, OVER exceeded… I couldn't have imagine[d] our ceremony, my bridal bouquet and the bridesmaid's bouquets being more beautiful than they were.",
+          "Pull Quote": "When I walked into our ceremony and saw the MAGIC she made come to life, I was truly speechless!",
+          "Rating": 5,
+          "Source": "Google review",
+          "Featured": true,
+          "Show in Banner": true,
+          "Sort Order": 1,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recTst02SarahT",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Sarah T.",
+          "Role": "Mother of the bride · May 2023 wedding",
+          "Quote": "My daughter's bouquet was absolutely gorgeous and the flowers she created for the arch were spectacular. Many of our wedding guests were raving about the table arrangements…",
+          "Rating": 5,
+          "Source": "Google review",
+          "Photo": [{ "url": "images/review-sarah-aisle.jpg", "filename": "review-sarah-aisle.jpg", "width": 750, "height": 1000 }],
+          "Alt Text": "Bride in a lace gown on her wedding day beside a cascading arrangement of purple and white flowers",
+          "Featured": false,
+          "Show in Banner": false,
+          "Sort Order": 2,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recTst03MelissaH",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Melissa H.",
+          "Role": "Bride · September 2023 wedding",
+          "Quote": "Tiffany did my September 2023 wedding florals and blew me away! She absolutely nailed my request for simple neutral florals! Delivery to our Winston Salem venue went smoothly and her communication was excellent.",
+          "Rating": 5,
+          "Source": "Google review",
+          "Featured": false,
+          "Show in Banner": false,
+          "Sort Order": 3,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recTst04CourtnyH",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Courtney H.",
+          "Role": "Google review",
+          "Quote": "Pixie Dust Floral Design is the only florist I will use. She listens to what the client wants/needs and does beautiful work.",
+          "Rating": 5,
+          "Source": "Google review",
+          "Featured": false,
+          "Show in Banner": false,
+          "Sort Order": 4,
+          "Show on Website": true
+        }
+      }
+    ]
+  },
+
+  "Services": {
+    "records": [
+      {
+        "id": "recSvc01Bouquets",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Bridal Bouquets",
+          "Gallery Category": "Bridal Bouquets",
+          "Description": "The bouquet you'll hold in every photo, plus bridesmaids' bouquets, boutonnieres and corsages to match. Designed around your dress, your palette and the flowers in season.",
+          "Photo": [{ "url": "images/service-bridal-bouquet.jpg", "filename": "service-bridal-bouquet.jpg", "width": 800, "height": 1200 }],
+          "Alt Text": "Bridal bouquet of white ranunculus and soft blue, blush and peach flowers resting on a white surface",
+          "CTA Label": "Start your bouquet",
+          "Sort Order": 1,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recSvc02Ceremony",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Ceremony & Reception Design",
+          "Gallery Category": "Ceremony & Reception",
+          "Description": "Arches, altar arrangements and full reception styling that turn your venue into the room you pictured when you said yes.",
+          "Photo": [{ "url": "images/service-ceremony.jpg", "filename": "service-ceremony.jpg", "width": 1400, "height": 934 }],
+          "Alt Text": "Wedding ceremony in a brick and glass venue framed by tall white and blue floral installations",
+          "CTA Label": "Plan your ceremony",
+          "Sort Order": 2,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recSvc03Centrpcs",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Centerpieces & Installations",
+          "Gallery Category": "Centerpieces & Installations",
+          "Description": "Tablescapes with real wow factor, including her signature flower-filled pumpkin centerpieces, starting at $65. Pumpkins are available in the fall by pre-order.",
+          "Photo": [{ "url": "images/service-pumpkin-centerpiece.jpg", "filename": "service-pumpkin-centerpiece.jpg", "width": 900, "height": 1200 }],
+          "Alt Text": "Signature pumpkin centerpiece overflowing with peach garden roses, orange ranunculus, blue delphinium and berries",
+          "CTA Label": "Design your tables",
+          "Featured Special": ["recSpc01Pumpkins"],
+          "Sort Order": 3,
+          "Show on Website": true
+        }
+      },
+      {
+        "id": "recSvc04Everyday",
+        "createdTime": "2026-10-21T12:00:00.000Z",
+        "fields": {
+          "Name": "Everyday & Sympathy",
+          "Gallery Category": "Everyday & Sympathy",
+          "Description": "Birthdays, anniversaries, corsages for the big dance, and thoughtful sympathy arrangements, all custom-designed with the same care as a wedding.",
+          "Photo": [{ "url": "images/service-everyday-white.jpg", "filename": "service-everyday-white.jpg", "width": 1200, "height": 900 }],
+          "Alt Text": "All-white arrangement of garden roses, hydrangea, tulips and waxflower with eucalyptus in a textured white pot",
+          "CTA Label": "Send an inquiry",
+          "Sort Order": 4,
+          "Show on Website": true
+        }
+      }
+    ]
+  }
+}

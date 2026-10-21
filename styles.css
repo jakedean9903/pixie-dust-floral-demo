@@ -288,6 +288,13 @@ p { margin: 0 0 1em; }
 .service-body { padding: 26px 24px 28px; display: flex; flex-direction: column; flex: 1; }
 .service-body p { color: var(--ink-soft); font-size: 0.98rem; flex: 1; }
 .service-body strong { color: var(--ink); font-weight: 600; }
+.service-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.link-quiet {
+  padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 0.88rem; color: var(--ink-soft);
+  text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px;
+}
+.link-quiet:hover { color: var(--ink); text-decoration-color: currentColor; }
 
 .feature-band { position: relative; min-height: min(78vh, 760px); display: grid; place-items: center; overflow: hidden; background: var(--sage-deep); }
 .feature-band > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
@@ -345,6 +352,56 @@ p { margin: 0 0 1em; }
 .gallery-item figcaption { font-size: 0.85rem; color: var(--ink-soft); padding: 10px 6px 0; letter-spacing: 0.02em; }
 
 .gallery-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 40px; }
+.gallery-item[hidden] { display: none; }
+.gallery-item.is-entering { animation: gallery-in 0.55s var(--ease) both; }
+@keyframes gallery-in { from { opacity: 0; transform: translateY(12px) scale(0.985); } }
+.photo-credit { color: #8b827b; }
+
+/* Category filters (Airtable demo section) */
+.gallery-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: -16px auto 14px; max-width: 980px; }
+.filter-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 10px 16px 10px 20px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--white); color: var(--ink);
+  font: inherit; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em;
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.filter-btn:hover { border-color: var(--rose); }
+.filter-count {
+  min-width: 24px; padding: 1px 7px; border-radius: 999px;
+  background: var(--blush-soft); color: var(--rose-deep);
+  font-size: 0.75rem; font-weight: 600; text-align: center;
+}
+.filter-btn[aria-pressed="true"] { background: var(--sage-deep); border-color: var(--sage-deep); color: var(--cream); box-shadow: 0 10px 22px -14px rgba(46, 60, 40, 0.9); }
+.filter-btn[aria-pressed="true"] .filter-count { background: rgba(251, 247, 242, 0.18); color: var(--cream); }
+.gallery-status { text-align: center; font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 32px; min-height: 1.4em; }
+.gallery-fallback { text-align: center; color: var(--ink-soft); }
+
+/* Seasonal special card inside the gallery */
+.special-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--line); overflow: hidden; }
+.special-card .gallery-open { position: relative; border-radius: 0; }
+.special-flag {
+  position: absolute; left: 14px; top: 14px;
+  background: var(--rose); color: var(--white);
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 999px;
+}
+.special-card .special-body { padding: 20px 22px 22px; }
+.special-meta { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-deep); margin: 0 0 6px; }
+.special-body h3 { font-size: 1.4rem; margin-bottom: 0.35em; }
+.special-body p { font-size: 0.95rem; color: var(--ink-soft); }
+.special-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+.special-price { font-family: var(--font-serif); font-size: 1.35rem; color: var(--ink); }
+.special-footer .btn { padding: 10px 20px; }
+
+.airtable-note {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  max-width: 640px; margin: 28px auto 0; text-align: left;
+  font-size: 0.85rem; color: var(--ink-soft);
+}
+.airtable-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px var(--sage-soft); }
 
 .lightbox {
   width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh;
@@ -616,6 +673,26 @@ p { margin: 0 0 1em; }
 
   .service-grid { grid-template-columns: 1fr; gap: 20px; }
   .service-img { aspect-ratio: 4 / 3.4; }
+
+  /* Filters become one swipeable row; the seasonal special spans both gallery columns */
+  .gallery-filters {
+    flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto;
+    margin: -12px -20px 10px; padding: 4px 20px 8px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .gallery-filters::-webkit-scrollbar { display: none; }
+  .filter-btn { padding: 9px 12px 9px 16px; font-size: 0.88rem; }
+  .gallery-status { margin-bottom: 20px; }
+  .special-card { column-span: all; display: grid; grid-template-columns: 0.9fr 1.1fr; margin-bottom: 14px; }
+  .special-card .gallery-open { height: 100%; }
+  .special-card .gallery-open img { height: 100%; object-fit: cover; }
+  .special-card .special-body { padding: 16px 16px 18px; }
+  .special-body h3 { font-size: 1.2rem; }
+  .special-body p { font-size: 0.88rem; }
+  .special-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .special-flag { left: 8px; top: 8px; font-size: 0.6rem; padding: 5px 9px; letter-spacing: 0.12em; }
+  .airtable-note { font-size: 0.8rem; align-items: flex-start; }
+  .airtable-dot { margin-top: 5px; }
 
   .feature-band, .feature-band-overlay { min-height: min(70vh, 620px); }
   .feature-band > img { object-position: 40% center; }

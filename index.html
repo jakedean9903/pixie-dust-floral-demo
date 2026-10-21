@@ -10,21 +10,21 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pixie Dust Floral Design | Wedding Florist in Kernersville, NC">
   <meta property="og:description" content="Wedding flowers that make the whole room gasp. Check your date with Tiffany today.">
-  <meta property="og:image" content="https://jakedean9903.github.io/pixie-dust-floral-demo/images/hero-bride-bouquet.jpg">
+  <meta property="og:image" content="images/hero-bride-bouquet.jpg">
 
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="images/hero-bride-bouquet.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Florist",
     "name": "Pixie Dust Floral Design",
-    "image": "https://jakedean9903.github.io/pixie-dust-floral-demo/images/hero-bride-bouquet.jpg",
+    "image": "images/hero-bride-bouquet.jpg",
     "telephone": "+1-336-310-9001",
     "address": {
       "@type": "PostalAddress",
@@ -130,56 +130,8 @@
           <p class="section-lede">From the bouquet in every photo to the tables your guests talk about, Tiffany designs florals that feel like you, using the flowers she loves most: ranunculus, coral charm peonies, astilbe and succulents.</p>
         </div>
 
-        <div class="service-grid">
-          <article class="service-card reveal">
-            <div class="service-img">
-              <img src="images/service-bridal-bouquet.jpg" width="800" height="1200" loading="lazy"
-                   alt="Bridal bouquet of white ranunculus and soft blue, blush and peach flowers resting on a white surface">
-            </div>
-            <div class="service-body">
-              <h3>Bridal Bouquets</h3>
-              <p>The bouquet you'll hold in every photo, plus bridesmaids' bouquets, boutonnieres and corsages to match. Designed around your dress, your palette and the flowers in season.</p>
-              <a href="#book" class="link-arrow">Start your bouquet</a>
-            </div>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-img">
-              <img src="images/service-ceremony.jpg" width="1400" height="934" loading="lazy"
-                   alt="Wedding ceremony in a brick and glass venue framed by tall white and blue floral installations">
-            </div>
-            <div class="service-body">
-              <h3>Ceremony &amp; Reception Design</h3>
-              <p>Arches, altar arrangements and full reception styling that turn your venue into the room you pictured when you said yes.</p>
-              <a href="#book" class="link-arrow">Plan your ceremony</a>
-            </div>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-img">
-              <img src="images/service-pumpkin-centerpiece.jpg" width="900" height="1200" loading="lazy"
-                   alt="Signature pumpkin centerpiece overflowing with peach garden roses, orange ranunculus, blue delphinium and berries">
-              <span class="price-tag">Signature pumpkins from $65</span>
-            </div>
-            <div class="service-body">
-              <h3>Centerpieces &amp; Installations</h3>
-              <p>Tablescapes with real wow factor, including her signature flower-filled pumpkin centerpieces, <strong>starting at $65</strong>. Pumpkins are available in the fall by pre-order.</p>
-              <a href="#book" class="link-arrow">Design your tables</a>
-            </div>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-img">
-              <img src="images/service-everyday-white.jpg" width="1200" height="900" loading="lazy"
-                   alt="All-white arrangement of garden roses, hydrangea, tulips and waxflower with eucalyptus in a textured white pot">
-            </div>
-            <div class="service-body">
-              <h3>Everyday &amp; Sympathy</h3>
-              <p>Birthdays, anniversaries, corsages for the big dance, and thoughtful sympathy arrangements, all custom-designed with the same care as a wedding.</p>
-              <a href="#book" class="link-arrow">Send an inquiry</a>
-            </div>
-          </article>
-        </div>
+        <!-- Rendered by script.js from the "Services" table in data/site-content.json -->
+        <div class="service-grid" id="service-grid" data-source="Services"></div>
       </div>
     </section>
 
@@ -188,10 +140,8 @@
       <img src="images/bridal-party-bouquets.jpg" width="1600" height="1067" loading="lazy"
            alt="Bride and bridesmaids in pastel blue, yellow, sage and pink dresses holding coordinating bouquets">
       <div class="feature-band-overlay">
-        <blockquote class="reveal">
-          <p>&ldquo;When I walked into our ceremony and saw the MAGIC she made come to life, I was truly speechless!&rdquo;</p>
-          <cite>Kaylin B., bride</cite>
-        </blockquote>
+        <!-- Filled from the Testimonials record marked "Show in Banner" -->
+        <blockquote class="reveal" id="banner-quote" data-source="Testimonials"></blockquote>
         <a href="#book" class="btn btn-light btn-lg reveal">Check Your Date</a>
       </div>
     </section>
@@ -234,98 +184,27 @@
         <div class="section-head reveal">
           <p class="eyebrow">The Gallery</p>
           <h2>Real weddings. <em>Real Pixie Dust.</em></h2>
-          <p class="section-lede">Every photo here is Tiffany's work, from real weddings and events around the Triad. Tap any photo to see it larger.</p>
+          <p class="section-lede">Every photo here is Tiffany's work, from real weddings and events around the Triad. Choose a category, then tap any photo to see it larger.</p>
         </div>
 
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Bridal bouquet of peach garden roses and white ranunculus">
-              <img src="images/gallery-peach-ranunculus-bouquet.jpg" width="1200" height="1200" loading="lazy"
-                   alt="Bridal bouquet of peach garden roses, white ranunculus and lisianthus with silk ribbon and a photo charm">
-            </button>
-            <figcaption>Peach garden roses &amp; white ranunculus</figcaption>
-          </figure>
+        <!--
+          AIRTABLE DEMO SECTION
+          Filter buttons and cards are generated by script.js from the "Gallery" and "Specials"
+          tables in data/site-content.json. Each record's "Categories" field drives filtering.
+          When Airtable goes live, only the data URL in script.js changes (see "AIRTABLE").
+        -->
+        <div class="gallery-filters" id="gallery-filters" role="toolbar" aria-label="Filter gallery by category" aria-controls="gallery-grid"></div>
+        <p class="gallery-status" id="gallery-status" aria-live="polite"></p>
 
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Newlyweds walking up the aisle at The Barn at Reynolda Village">
-              <img src="images/gallery-reynolda-recessional.jpg" width="900" height="1200" loading="lazy"
-                   alt="Smiling bride holding white calla lilies walks back up the aisle with her groom in front of the Reynolda greenhouse">
-            </button>
-            <figcaption>The Barn at Reynolda Village &middot; Photo: Emma Jo Marsh Photography</figcaption>
-          </figure>
+        <div class="gallery-grid" id="gallery-grid" data-source="Gallery,Specials"></div>
+        <noscript>
+          <p class="gallery-fallback">Turn on JavaScript to browse the gallery, or see Tiffany's latest work on <a href="https://www.instagram.com/pixiedustflorals/">Instagram @pixiedustflorals</a>.</p>
+        </noscript>
 
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Reception tablescape with dried florals">
-              <img src="images/gallery-tablescape.jpg" width="1400" height="1050" loading="lazy"
-                   alt="Long reception table with gold chargers, a blush rose bud vase and dried pampas florals beneath draped fabric">
-            </button>
-            <figcaption>Reception tablescape</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Groom's boutonniere">
-              <img src="images/gallery-boutonniere-blue.jpg" width="800" height="1200" loading="lazy"
-                   alt="Groom in a blue suit and floral tie wearing a white and soft blue boutonniere">
-            </button>
-            <figcaption>Groom's boutonniere</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Ceremony arch by the lake">
-              <img src="images/gallery-lakeside-arch.jpg" width="900" height="1200" loading="lazy"
-                   alt="Couple exchanging vows beneath a gold arch dressed in pink and purple florals beside a lake">
-            </button>
-            <figcaption>Lakeside ceremony arch</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Calla lily arrangements">
-              <img src="images/gallery-calla-lilies.jpg" width="900" height="1200" loading="lazy"
-                   alt="Blush-tipped white calla lilies arranged in a cluster of clear glass vases">
-            </button>
-            <figcaption>Blush calla lilies</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Wrist corsage">
-              <img src="images/gallery-wrist-corsage.jpg" width="1012" height="1200" loading="lazy"
-                   alt="Wrist corsage of white ranunculus and plum chrysanthemums with fine greenery">
-            </button>
-            <figcaption>Ranunculus wrist corsage</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Blush and toffee rose arrangement">
-              <img src="images/gallery-blush-roses.jpg" width="1149" height="1200" loading="lazy"
-                   alt="Arrangement of ivory, blush and toffee-colored roses with waxflower in a glass vase">
-            </button>
-            <figcaption>Blush &amp; toffee roses</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Bouquet with heart sunglasses">
-              <img src="images/gallery-bouquet-sunglasses.jpg" width="1200" height="800" loading="lazy"
-                   alt="Pastel bridal bouquet laid flat with a pair of white heart-shaped sunglasses">
-            </button>
-            <figcaption>A bouquet with personality</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Burgundy boutonniere">
-              <img src="images/gallery-burgundy-boutonniere.jpg" width="900" height="1200" loading="lazy"
-                   alt="Boutonniere with a white ranunculus, burgundy and lavender blooms and pine on a wooden table">
-            </button>
-            <figcaption>Burgundy &amp; plum boutonniere</figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <button type="button" class="gallery-open" aria-label="View larger: Pink garden arrangement">
-              <img src="images/gallery-pink-roses.jpg" width="1038" height="1200" loading="lazy"
-                   alt="Garden-style arrangement of pink roses, tulips and carnations in a blush ceramic vase">
-            </button>
-            <figcaption>Garden arrangement in pinks</figcaption>
-          </figure>
-        </div>
+        <p class="airtable-note reveal">
+          <span class="airtable-dot" aria-hidden="true"></span>
+          Built to update from Airtable: once connected, new photos and seasonal specials Tiffany adds there appear here automatically, already sorted into these categories.
+        </p>
 
         <div class="gallery-cta reveal">
           <a href="#book" class="btn btn-primary btn-lg">I Want Flowers Like These</a>
@@ -352,43 +231,8 @@
           <p class="section-lede">45 of them five stars. Here's what brides and their families say about working with Tiffany.</p>
         </div>
 
-        <div class="review-grid">
-          <figure class="review-card review-card-feature reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>
-              <p>&ldquo;I trusted Tiffany with our floral arrangements and design for our special day&hellip; When I walked into our ceremony and saw the MAGIC she made come to life, I was truly speechless! I had several expectations set for her that she very well, OVER exceeded&hellip; I couldn't have imagine[d] our ceremony, my bridal bouquet and the bridesmaid's bouquets being more beautiful than they were.&rdquo;</p>
-            </blockquote>
-            <figcaption><strong>Kaylin B.</strong><span>Bride &middot; Google review</span></figcaption>
-          </figure>
-
-          <figure class="review-card review-card-photo reveal">
-            <img src="images/review-sarah-aisle.jpg" width="750" height="1000" loading="lazy"
-                 alt="Bride in a lace gown on her wedding day beside a cascading arrangement of purple and white flowers">
-            <div class="review-card-inner">
-              <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>
-                <p>&ldquo;My daughter's bouquet was absolutely gorgeous and the flowers she created for the arch were spectacular. Many of our wedding guests were raving about the table arrangements&hellip;&rdquo;</p>
-              </blockquote>
-              <figcaption><strong>Sarah T.</strong><span>Mother of the bride &middot; May 2023 wedding</span></figcaption>
-            </div>
-          </figure>
-
-          <figure class="review-card reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>
-              <p>&ldquo;Tiffany did my September 2023 wedding florals and blew me away! She absolutely nailed my request for simple neutral florals! Delivery to our Winston Salem venue went smoothly and her communication was excellent.&rdquo;</p>
-            </blockquote>
-            <figcaption><strong>Melissa H.</strong><span>Bride &middot; September 2023 wedding</span></figcaption>
-          </figure>
-
-          <figure class="review-card reveal">
-            <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>
-              <p>&ldquo;Pixie Dust Floral Design is the only florist I will use. She listens to what the client wants/needs and does beautiful work.&rdquo;</p>
-            </blockquote>
-            <figcaption><strong>Courtney H.</strong><span>Google review</span></figcaption>
-          </figure>
-        </div>
+        <!-- Rendered by script.js from the "Testimonials" table in data/site-content.json -->
+        <div class="review-grid" id="review-grid" data-source="Testimonials"></div>
 
         <div class="center reveal reviews-cta">
           <a href="#book" class="btn btn-primary btn-lg">Join Our Happy Couples</a>
@@ -603,6 +447,6 @@
     <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photo">&#8250;</button>
   </dialog>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js"></script>
 </body>
 </html>
