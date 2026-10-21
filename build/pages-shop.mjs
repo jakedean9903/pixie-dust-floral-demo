@@ -18,7 +18,7 @@ function previewNotice(catalog) {
 }
 
 function productCard(p, catalog) {
-  return html`<article class="gallery-item product-card reveal" data-categories="${slugify(p["Shop Category"])}">
+  return html`<article class="gallery-item product-card" data-categories="${slugify(p["Shop Category"])}">
             <a href="${p.path}" class="product-img">${img(p)}</a>
             <div class="product-body">
               <p class="product-cat">${esc(p["Shop Category"])}</p>

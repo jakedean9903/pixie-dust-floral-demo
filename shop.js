@@ -205,7 +205,10 @@ async function initProductForm() {
     if (line.fulfillment === "Pickup") { line.recipient = {}; line.address = {}; }
 
     const check = priceOrder(catalog, [line]);
-    errorsBox.replaceChildren(...check.errors.map((msg) => el("p", { text: msg.replace(`${product.name}: `, "") })));
+    errorsBox.replaceChildren(...check.errors.map((msg) => {
+      const text = msg.replace(`${product.name}: `, "");
+      return el("p", { text: text.charAt(0).toUpperCase() + text.slice(1) });
+    }));
     errorsBox.hidden = check.ok;
     if (!check.ok) { errorsBox.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
 
