@@ -601,7 +601,8 @@ p { margin: 0 0 1em; }
   .hero-copy { display: contents; }
   .hero .eyebrow { order: 1; font-size: 0.7rem; letter-spacing: 0.16em; margin-bottom: 0.9em; }
   .hero h1 { order: 2; font-size: clamp(2.3rem, 10.5vw, 2.9rem); margin-bottom: 0.55em; }
-  .hero-media { order: 3; padding: 0 0 26px 18px; margin-bottom: 28px; }
+  .hero-media { order: 3; padding: 0; margin-bottom: 28px; }
+  .hero-inset { display: none; }
   .hero-lede { order: 4; font-size: 1.05rem; margin-bottom: 1.5em; }
   .hero-actions { order: 5; margin-bottom: 26px; }
   .hero-actions .btn { flex: 1 1 100%; }
@@ -610,7 +611,6 @@ p { margin: 0 0 1em; }
   .rating-text { font-size: 0.86rem; white-space: nowrap; }
   .hero-arch { aspect-ratio: 5 / 5.6; }
   .hero-quote { display: none; }
-  .hero-inset { width: 34%; border-width: 4px; }
 
   .ribbon-track span { font-size: 1.05rem; padding: 0 22px; }
 
@@ -621,7 +621,7 @@ p { margin: 0 0 1em; }
   .feature-band > img { object-position: 40% center; }
 
   .review-card { padding: 28px 24px; }
-  .review-card-photo { grid-template-columns: 1fr; }
+  .review-card.review-card-photo { grid-template-columns: 1fr; padding: 0; }
   .review-card-photo img { aspect-ratio: 4 / 3; height: auto; object-position: center 30%; }
   .review-card-feature blockquote p { font-size: 1.15rem; }
 
